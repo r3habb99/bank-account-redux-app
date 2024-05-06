@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deposit, payLoan, requestLoan, withdraw } from "./accountSlice";
@@ -13,11 +14,8 @@ function AccountOperations() {
   const {
     loan: currentLoan,
     loanPurpose: currentLoanPurpose,
-    balance,
     isLoading,
   } = useSelector((store) => store.account);
-
-  console.log(balance);
 
   function handleDeposit() {
     if (!depositAmount) return;
@@ -48,7 +46,7 @@ function AccountOperations() {
       <h2>Your account operations</h2>
       <div className="inputs">
         <div>
-          <label>Deposit</label>
+          <label htmlFor="depositAmount">Deposit</label>
           <input
             type="number"
             value={depositAmount}
@@ -69,7 +67,7 @@ function AccountOperations() {
         </div>
 
         <div>
-          <label>Withdraw</label>
+          <label htmlFor="withdrawalAmount">Withdraw</label>
           <input
             type="number"
             value={withdrawalAmount}
@@ -81,7 +79,7 @@ function AccountOperations() {
         </div>
 
         <div>
-          <label>Request loan</label>
+          <label htmlFor="loanAmount">Request loan</label>
           <input
             type="number"
             value={loanAmount}
